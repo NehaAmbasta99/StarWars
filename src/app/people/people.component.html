@@ -1,0 +1,52 @@
+
+<div class="m-auto font-weight-bold" id="header">
+        People of Star Wars
+      </div>
+      <div class="m-auto w-75 border-1">
+        <div class="bg-primary row m-0 font-weight-bold text-white">
+            <div class="w-25">Name</div>
+            <div class="w-25">Birth Year</div>
+            <div class="w-25">Gender</div>
+            <div class="w-25">Number of Films</div>
+        </div>
+        <div> 
+          <div *ngFor="let user of users" (click)="getPeopleDetail(user.url)" class="row people-row m-0">
+                    <div class="w-25">{{user.name}}</div>
+                    <div class="w-25">{{user.birth_year}}</div>
+                    <div class="w-25">{{user.gender}}</div>
+                    <div class="w-25 rows">{{user.films.length}}</div>           
+                <div class="people-detail d-block">
+                        <div *ngIf="selectedUser && (user.url === selectedUser.url) && visible" class="border-1">
+                                <div class="row ml-0 font-weight-bold">{{selectedUser.name}}</div>
+                                <div class="row ml-0">
+                                    <div class="w-50">
+                                        <div class="w-25 font-weight-bold d-inline-block">Height</div>
+                                        <div class="w-25 d-inline-block">{{selectedUser.height}}</div>
+                                    </div>
+                                    <div class="w-50">
+                                            <div class="w-25 font-weight-bold d-inline-block">Eye Color</div>
+                                            <div class="w-25 d-inline-block">{{selectedUser.eye_color}}</div>
+                                    </div>
+                                </div>
+                                <div class="row ml-0">
+                                        <div class="w-50">
+                                            <div class="w-25 font-weight-bold d-inline-block">mass</div>
+                                            <div class="w-25 d-inline-block">{{selectedUser.mass}}</div>
+                                        </div>
+                                        <div class="w-50">
+                                                <div class="w-25 font-weight-bold d-inline-block">Home world</div>
+                                                <div class="w-25 d-inline-block"><a href={{selectedUser.homeworld}}>Link</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="row ml-0">
+                                            <div class="w-50">
+                                                <div class="w-25 font-weight-bold d-inline-block">Hair color</div>
+                                                <div class="w-25 d-inline-block">{{selectedUser.hair_color}}</div>
+                                            </div>
+                                        </div>
+                          </div>
+                </div>
+          </div>          
+        </div>
+      </div>
+      
